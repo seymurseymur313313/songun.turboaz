@@ -8,9 +8,13 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
     mc:Ignorable="d"
-        Title="MainView" Height="450" Width="870">
+        Title="MainView" Height="800" Width="1200">
 
-    <Grid  Height="450" Width="870">
+    <Grid Margin="10,165,0,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="433*"/>
+            <ColumnDefinition Width="437*"/>
+        </Grid.ColumnDefinitions>
 
 
         <Grid.RowDefinitions>
@@ -22,7 +26,7 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Row="0" Margin="0,0,0,50" Background="#E1E1E1">
+        <StackPanel Grid.Row="0" Margin="-10,-163,0,90" Background="#E1E1E1" Grid.ColumnSpan="2">
             <Button x:Name="myImageButton" MouseEnter="myImageButton_MouseEnter" MouseLeave="myImageButton_MouseLeave" Width="68" Height="25" Margin="0,6,650,0" Background="Transparent" BorderBrush="Transparent">
                 <StackPanel >
                     <TextBlock x:Name="selectionText" Text="Tap.az" Foreground="SlateGray" FontSize="15" />
@@ -56,15 +60,23 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Background="Red"  Margin="0,-50,0,100">
-            <TextBlock Text="Turbo.az" Foreground="White" FontSize="25" Margin="80,4,0,0" FontWeight="DemiBold"></TextBlock>
-            <TextBlock Text="Butun elanlar" FontSize="15" Foreground="White" Margin="220,-25,500,0"></TextBlock>
-            <TextBlock Text="Avtosalonlar" FontSize="15" Foreground="White" Margin="340,-25,390,0"></TextBlock>
-            <TextBlock Text="Ehtiyat hisseleri ve aksesuarlar" FontSize="15" Foreground="White" Margin="460,-25,150,0"></TextBlock>
+        <StackPanel Background="Red"  Margin="-10,-122,0,90" Grid.ColumnSpan="2">
+            <TextBlock Text="Turbo.az" Foreground="White" FontSize="25" FontWeight="DemiBold" Height="27" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.764"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.153"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform></TextBlock>
+            <TextBlock Text="Butun elanlar" FontSize="15" Foreground="White" Margin="220,-25,500,0"/>
+            <TextBlock Text="Avtosalonlar" FontSize="15" Foreground="White" Margin="340,-25,390,0"/>
+            <TextBlock Text="Ehtiyat hisseleri ve aksesuarlar" FontSize="15" Foreground="White" Margin="460,-25,150,0"/>
 
 
         </StackPanel>
-        <StackPanel Grid.Row="2" Background="#E1E1E1" Margin="0,-100,0,100">
+        <StackPanel Background="#E1E1E1" Margin="-10,0,0,35" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="1200">
             <ComboBox x:Name="marka" HorizontalAlignment="Left" Margin="50,20,0,0" Text=" " Width="136" Height="35" 
           ItemsSource="{Binding markaNames}" SelectedItem="{Binding SelectedMarka}" 
           SelectionChanged="Marka_SelectionChanged" />
@@ -73,21 +85,22 @@
           ItemsSource="{Binding modelNames}" SelectionChanged="Model_SelectionChanged" />
 
         </StackPanel>
-        <StackPanel Grid.Row="3" Background="#ECECEC" Margin="0,-100,0,150">
-            <TextBlock Text="Butun elanlar" FontSize="23" Foreground="DarkSlateGray" FontWeight="DemiBold" Margin="50,5,0,0"></TextBlock>
+        <StackPanel Background="#ECECEC" Margin="-10,60,0,77" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <TextBlock Text="Butun elanlar" FontSize="23" Foreground="DarkSlateGray" FontWeight="DemiBold" Width="1194" RenderTransformOrigin="0.376,0.393" Height="43"/>
+            <TextBlock Text="Butun elanlar" FontSize="23" Foreground="DarkSlateGray" FontWeight="DemiBold" Width="376" RenderTransformOrigin="0.376,0.393" Height="51"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Margin="40,0,40,0" Background="#F5F5F5" Grid.RowSpan="3">
-            <WrapPanel x:Name="imagePanel" Grid.Row="4" Margin="0,-150,0,0" Background="#F5F5F5">
-                <ScrollViewer Background="Transparent" Height="233" Width="630">
+        <StackPanel Grid.Row="1" Margin="0,46,0,8" Background="#F5F5F5" Grid.ColumnSpan="2" Grid.RowSpan="4" HorizontalAlignment="Right" Width="1200">
+            <WrapPanel x:Name="imagePanel" Background="#F5F5F5" Height="434" Width="948">
+                <ScrollViewer Background="Transparent" Height="434" Width="922">
                     <Canvas x:Name="imageStackPanel" Margin="20" Height="906">
                         <Image x:Name="selectedModelImage"  Width="200" Height="200" Margin="10" Stretch="UniformToFill" />
-                        <Image Source="/image/piris.jpg" Width="154" Height="108" Canvas.Left="30" Canvas.Top="26" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="priora"/>
+                        <Image Source="/image/piris.jpg" Width="207" Height="165" Canvas.Left="-18" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="priora" Canvas.Top="-9"/>
                         <Image Source="/Image/tuareg.jpg" Width="161" Height="116" Canvas.Left="228" Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonUp="CarImage_Click" Tag="tuareg"/>
                         <Image Source="/Image/4goz.jpg" Width="162" Height="115" Canvas.Left="426" Canvas.Top="145" MouseLeftButtonUp="CarImage_Click" Tag="4goz"/>
                         <Image Source="/Image/60kuza.jpg" Width="158" Height="107" Canvas.Left="31" Canvas.Top="150" MouseLeftButtonUp="CarImage_Click" Tag="e60"/>
-                        <Image Source="/Image/camry.jpg" Width="169" Height="123" HorizontalAlignment="Center" Canvas.Left="422" Canvas.Top="7" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="camry"/>
-                        <Image Source="/Image/07.jpg" Width="192" Height="105" Canvas.Left="211" Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="2107"/>
+                        <Image Source="/Image/camry.jpg" Width="190" Height="135" HorizontalAlignment="Left" Canvas.Left="440" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="camry" Canvas.Top="6"/>
+                        <Image Source="/Image/07.jpg" Width="236" Height="132" Canvas.Left="194" Canvas.Top="9" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="2107"/>
                         <Image Source="/image/qalikk.jpg" Width="273" Height="117" Canvas.Left="-32" Canvas.Top="278" MouseLeftButtonUp="CarImage_Click" Tag="brabus"/>
                         <Image Source="/image/download.jpg" Width="199" Height="117" Canvas.Left="203" Canvas.Top="281" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="sessot"/>
                         <Image Source="/image/dodge.jpg" Width="160" Height="111" Canvas.Left="424" Canvas.Top="285" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="challenger"/>
